@@ -40,7 +40,7 @@ def job_tell_joke():
 
 
 def main():
-    schedule.every(20).minutes.do(tell_random_joke)
+    schedule.every(20).minutes.do(job_tell_joke)
     while True:
         schedule.run_pending()
         time.sleep(1)
