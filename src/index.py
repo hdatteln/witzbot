@@ -35,12 +35,12 @@ def tell_random_joke():
 
 def job_tell_joke():
     curr_time = round(time.time())
-    if curr_time % 3 == 0:
+    if curr_time % 4 == 0:
         tell_random_joke()
 
 
 def main():
-    schedule.every(10).minutes.do(tell_random_joke)
+    schedule.every(20).minutes.do(tell_random_joke)
     while True:
         schedule.run_pending()
         time.sleep(1)
