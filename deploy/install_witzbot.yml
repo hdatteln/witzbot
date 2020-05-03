@@ -38,8 +38,18 @@
         requirements: /apps/witzbot/src/requirements.txt
         executable: pip3.8
 
-    - name: "Start bot"
+    - name: "Start Flask App"
       command: "python3.8 /apps/witzbot/src/index.py"
+      async: 2592000               # 60*60*24*30 – 1 month
+      poll: 0
+      environment:
+        WB_CLIENT_ID: "{{WB_CLIENT_ID}}"
+        WB_CLIENT_SIGNING_SECRET: "{{WB_CLIENT_SIGNING_SECRET}}"
+        WB_CLIENT_BOT_TOKEN: "{{WB_CLIENT_BOT_TOKEN}}"
+        WB_DEFAULT_CHANNEL: "{{WB_DEFAULT_CHANNEL}}"
+
+    - name: "Start Bot Worker"
+      command: "python3.8 /apps/witzbot/src/joke_worker.py"
       async: 2592000               # 60*60*24*30 – 1 month
       poll: 0
       environment:

@@ -1,5 +1,4 @@
 slackclient
-slackeventsapi
 flask
 certifi
 schedule
